@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { Finish } from '../components/Finish'
 import queryString from 'query-string'
+
+import { Finish } from '../components/Finish'
 
 const Out: FC = () => {
   const values = queryString.parse(window.location.search)
