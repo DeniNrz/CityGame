@@ -16,6 +16,10 @@ const CitiesGame: React.FC<CitiesGameProps> = ({ citiesList }) => {
   const [timer, setTimer] = useState<number>(120)
   const [messages, setMessages] = useState<Message[]>([])
 
+  const cityName = messages[messages.length - 1]?.content
+
+  const num = messages.length
+
   useEffect(() => {
     let timeout: NodeJS.Timeout | null = null
 
@@ -24,7 +28,7 @@ const CitiesGame: React.FC<CitiesGameProps> = ({ citiesList }) => {
         setTimer((prevTimer) => prevTimer - 1)
       }, 1000)
     } else {
-      window.location.href = '/out';
+      window.location.href = '/out'
       setUsedCities([])
       setCurrentCity('')
       setTimer(120)
@@ -45,7 +49,9 @@ const CitiesGame: React.FC<CitiesGameProps> = ({ citiesList }) => {
         !usedCities.includes(city)
     )
     if (!nextCities.length) {
-      window.location.href = '/out';
+      window.location.href = `/out?num=${num}&cityName=${encodeURIComponent(
+        cityName
+      )}`
       setUsedCities([])
       setCurrentCity('')
       setTimer(120)

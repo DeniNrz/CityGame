@@ -11,12 +11,7 @@ function App() {
   return (
     <div className="w-567 bg-white mx-auto mt-13 items-center rounded-xl">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home />
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/game" element={<CitiesGame citiesList={cities} />} />
         <Route path="/out" element={<Out />} />
         <Route path="/victoty" element={<Victoty />} />
